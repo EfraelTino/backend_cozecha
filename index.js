@@ -24,7 +24,9 @@ app.use(express.json());
 app.use(indexRoutes)
 app.use("/api", productoRoutes);
 app.use("/api", userRoutes);
+
 const PORT = process.env.PORT || 4000;
+
 app.listen( PORT, () =>{
     console.log(`El servidor está usando el  http://localhost:${PORT}`)
 })
