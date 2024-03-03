@@ -13,11 +13,7 @@ app.use(express.urlencoded({extended:true}))
 // Usa multer como middleware para todas las solicitudes
 app.use(upload.any());
 app.use(
-	cors({
-        origin: "http://localhost:5173",
-		methods: "GET,POST,PUT,DELETE",
-		credentials: true,
-	})
+	cors()
 );
 app.use('/uploads', express.static(path.join(__dirname, './uploads/')));
 app.use(express.json());
