@@ -13,7 +13,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const mostrarProductos = async (req, res) => {
     try {
-        const query = "SELECT * FROM productos P JOIN sub_categoria S ON p.id_subcategoria = S.id JOIN categoria C on S.id_categoria = C.id";
+        // const query = "SELECT * FROM productos P JOIN sub_categoria S ON p.id_subcategoria = S.id JOIN categoria C on S.add .id_categoria = C.id";
+
+        const query = "SELECT * FROM productos P JOIN sub_categoria S ON P.id_subcategoria = S.id JOIN categoria C ON S.id_categoria = C.id";
         const [rows, fields] = await pool.query(query);
         console.log(rows);
         if (rows.length === 0) {
