@@ -133,13 +133,14 @@ const loginUser = async (req, res) => {
                 const apellidoUsuario = resComprador[0].apellido;
                 const emailUsuario = resComprador[0].email;
                 const idtipo = resComprador[0].id_tipo_usuario;
+                const idusuario = resComprador[0].id;
 
                 try {
                     const token = await jwt.sign({
                         exp: Math.floor(Date.now() / 1000) + (60 * 60), // Expira después de 1 minuto
                         data: 'foobar'
                     }, 'secret');
-                    res.status(200).json(({ token: token, email: emailUsuario, nombre: nombreUsuario, apellido: apellidoUsuario, tipo: idtipo }));
+                    res.status(200).json(({ token: token, email: emailUsuario, nombre: nombreUsuario, apellido: apellidoUsuario, tipo: idtipo, idusuario: idusuario }));
                 } catch (error) {
                     console.error('Error al generar el token:', error);
                 }
@@ -155,6 +156,7 @@ const loginUser = async (req, res) => {
             const apellidoUsuario = resProveedor[0].apellido;
             const emailUsuario = resProveedor[0].email;
             const idtipo = resProveedor[0].id_tipo_usuario;
+            const idusuario = resProveedor[0].id;
             try {
                 const token = await jwt.sign({
                     exp: Math.floor(Date.now() / 1000) + (60 * 60), // Expira después de 1 minuto
@@ -162,7 +164,7 @@ const loginUser = async (req, res) => {
                 }, 'secret');
                 console.log({ token: token, email: emailUsuario, nombre: nombreUsuario, apellido: apellidoUsuario, tipo: idtipo })
 
-                res.status(200).json(({ token: token, email: emailUsuario, nombre: nombreUsuario, apellido: apellidoUsuario, tipo: idtipo }));
+                res.status(200).json(({ token: token, email: emailUsuario, nombre: nombreUsuario, apellido: apellidoUsuario, tipo: idtipo, idusuario: idusuario }));
             } catch (error) {
                 console.error('Error al generar el token:', error);
             }

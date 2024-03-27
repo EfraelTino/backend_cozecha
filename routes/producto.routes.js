@@ -9,7 +9,7 @@ const {getProductos,
     crearCategoria,
     createSubCategoria,
     getSubcategorias,
-    crearProduct, mostrarProductos} = require('../controllers/producto.controller');
+    crearProduct, mostrarProductos, mostrarProductoUsuario} = require('../controllers/producto.controller');
 
 /**
  * METODOS GET PARA PRODUCTOS
@@ -34,7 +34,7 @@ router.get("/categorias", getCategorias)
 router.get("/categorias/subcategoria", getSubcategorias)
 
 
-
+router.post('/productousuario', mostrarProductoUsuario)
 
 
 
